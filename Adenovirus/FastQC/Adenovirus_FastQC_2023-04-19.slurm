@@ -1,5 +1,5 @@
-# All scripts start with the bin bash below as the first line
 #!/bin/bash
+# All scripts start with the bin bash below as the first line
 
 # CSIRO Petrichor
 # Login with Nexus username and password
