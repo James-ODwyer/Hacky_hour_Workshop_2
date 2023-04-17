@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # All scripts start with the bin bash above as the first line
 # CSIRO Petrichor
