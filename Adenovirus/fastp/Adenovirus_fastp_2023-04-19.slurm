@@ -1,6 +1,6 @@
-# All scripts start with the bin bash below as the first line
-#!/bin/bash
 
+#!/bin/bash
+# All scripts start with the bin bash above as the first line
 # CSIRO Petrichor
 # Login with Nexus username and password
 # Do not run jobs directly in the login node
