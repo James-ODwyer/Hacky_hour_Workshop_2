@@ -1,0 +1,66 @@
+/apps/quast/5.2.0-py39/bin/quast.py -o /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/ /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/SPAdes/scaffolds.fasta
+
+Version: 5.2.0
+
+System information:
+  OS: Linux-5.3.18-150300.59.63-default-x86_64-with-glibc2.31 (linux_64)
+  Python version: 3.9.4
+  CPUs number: 64
+
+Started: 2023-04-17 15:19:00
+
+Logging to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/quast.log
+NOTICE: Maximum number of threads is set to 16 (use --threads option to set it manually)
+
+CWD: /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/SPAdes
+Main parameters: 
+  MODE: default, threads: 16, min contig length: 500, min alignment length: 65, min alignment IDY: 95.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+Contigs:
+  Pre-processing...
+  /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/SPAdes/scaffolds.fasta ==> scaffolds
+
+2023-04-17 15:19:00
+Running Basic statistics processor...
+  Contig files: 
+    scaffolds
+  Calculating N50 and L50...
+    scaffolds, N50 = 19185, L50 = 1, auN = 14578.9, Total length = 28737, GC % = 57.53, # N's per 100 kbp =  0.00
+  Drawing Nx plot...
+    saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/basic_stats/Nx_plot.pdf
+  Drawing cumulative plot...
+    saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/basic_stats/GC_content_plot.pdf
+  Drawing scaffolds GC content plot...
+    saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/basic_stats/scaffolds_GC_content_plot.pdf
+  Drawing Coverage histogram (bin size: 1x)...
+    saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/basic_stats/coverage_histogram.pdf
+  Drawing scaffolds coverage histogram (bin size: 1x)...
+    saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/basic_stats/scaffolds_coverage_histogram.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2023-04-17 15:19:01
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating PDF with all tables and plots...
+  2 of 2: Creating Icarus viewers...
+Done
+
+2023-04-17 15:19:01
+RESULTS:
+  Text versions of total report are saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/report.html
+  PDF version (tables and plots) is saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/report.pdf
+  Icarus (contig browser) is saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/icarus.html
+  Log is saved to /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/statistics/quast.log
+
+Finished: 2023-04-17 15:19:01
+Elapsed time: 0:00:01.639074
+NOTICEs: 2; WARNINGs: 0; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

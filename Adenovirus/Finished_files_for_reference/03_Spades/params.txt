@@ -1,0 +1,37 @@
+Command line: /apps/spades/3.15.5/bin/spades.py	-t	1	-1	/scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/fastp/SRR10009242_trimmed_R1.fastq.gz	-2	/scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/fastp/SRR10009242_trimmed_R2.fastq.gz	-o	/scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/SPAdes	
+
+System information:
+  SPAdes version: 3.15.5
+  Python version: 3.9.4
+  OS: Linux-5.3.18-150300.59.63-default-x86_64-with-glibc2.31
+
+Output dir: /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/SPAdes
+Mode: read error correction and assembling
+Debug mode is turned OFF
+
+Dataset parameters:
+  Standard mode
+  For multi-cell/isolate data we recommend to use '--isolate' option; for single-cell MDA data use '--sc'; for metagenomic data use '--meta'; for RNA-Seq use '--rna'.
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: ['/scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/fastp/SRR10009242_trimmed_R1.fastq.gz']
+      right reads: ['/scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/fastp/SRR10009242_trimmed_R2.fastq.gz']
+      interlaced reads: not specified
+      single reads: not specified
+      merged reads: not specified
+Read error correction parameters:
+  Iterations: 1
+  PHRED offset will be auto-detected
+  Corrected reads will be compressed
+Assembly parameters:
+  k: automatic selection based on read length
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/SPAdes/tmp
+  Threads: 1
+  Memory limit (in Gb): 250
+

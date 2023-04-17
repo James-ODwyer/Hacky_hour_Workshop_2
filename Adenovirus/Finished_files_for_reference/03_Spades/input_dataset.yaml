@@ -1,0 +1,7 @@
+- "left reads":
+  - "/scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/fastp/SRR10009242_trimmed_R1.fastq.gz"
+  "number": !!int "1"
+  "orientation": "fr"
+  "right reads":
+  - "/scratch1/odw014/Hacky_hour_Workshop_2/Adenovirus/fastp/SRR10009242_trimmed_R2.fastq.gz"
+  "type": "paired-end"

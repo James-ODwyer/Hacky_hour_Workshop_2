@@ -1,0 +1,101 @@
+
+# Here are a few commands we will be using to play around with our data and make sure the files are how we want them
+
+# But first. 
+Do you have putty downloaded?
+Do you have WinSCP downloaded?
+
+
+# 1. Starting an interactive session in putty
+
+#  sinteractive allocates computer resources to you so you can run a few things on the HPC yourself instead of using job scripts and running sbatch
+# -p stands for what partition (type of computer process we want to run) in this case we use io which is the download node on the HPC. This is how we can download and upload files off websites or other servers. 
+# -c is the number of CPUs we require. 1 will be plenty
+# -m is the amount of memory we require. 500 megabytes will be plenty
+# -A is to specify your 02D account number. Remember to change this! You can look yours up with get_project_codes
+sinteractive -t 00:30:00 -p io -c 1 -m 500M -A OD-123456
+
+# We want to download all the data we need for this workship. 
+# The data is stored on github so we need to download it from github 
+# first let's navigate to your scratch1 working directory
+
+cd $SCRATCH1DIR
+
+# Now we can download the files we need with
+
+git clone https://github.com/James-ODwyer/Hacky_hour_Workshop_2.git
+
+# This will create a new set of file directories with all the data and job scripts we need
+
+# On the HPC it is best to always end our download interactive sessions as soon as we have finished downloading the files. to cancel an interactive session
+# just type 
+
+exit
+
+# We will now create a new interactive session
+sinteractive -t 00:30:00 -c 1 -m 500M -A OD-123456
+
+
+Now to look at the data we downloaded.
+# If we have a look at the raw data files we see they are fragmented into 4 pieces 
+# This can often happen when samples are run with multiple sequencing barcodes, or run multiple times
+# or with certain sequencing technologies like oxford nanopore sequencing
+# For analysis, we want all files to be combined
+
+# This means all R1 files need to be combined together
+# and all R2 files need to be combined together
+# We can do this with a simple command but first we need to navigate to the correct folder
+
+cd $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/Raw_data
+
+
+
+
+# Now we want to combine the R1 files
+
+# in the below command 
+# cat tells the computer to print out all the lines of every file that matches the input we give
+# we give the input *fragment_R1* which tells the cat command to look for any file that has the phrase fragment_R1 in the name. 
+# the * added to the phrase tell the cat that the file can have any other characters before and after the chosen phrase
+# Lastly the > tells the computer to, instead of writing the results to the screen save them in a file with the name on the right (SRR10009242_R1.fastq.gz)
+
+cat *fragment_R1* > SRR10009242_R1.fastq.gz
+
+
+# repeat for all R2 
+cat *fragment_R2* > SRR10009242_R2.fastq.gz
+
+# Now we are ready to analyse the data.
+
+#the first step is to trim the files for that we will use a program called fastp.
+# we have prepared a script for this in the fastp folder 
+
+cd $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/fastp
+
+# Open up the file here to have a look and update the O2D number
+
+#when ready submit the job
+
+sbatch Adenovirus_fastp_2023-04-19.slurm
+
+# This will run very quickly in the background now so we will give it a few minutes but it will output trimmed and quality filtered read data to the output folder 
+# $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/fastp
+
+# We also get a summary page here that tells us what fastp did. This file can be read on the HPC but it is a lot nicer to see as a proper web interface file (html) so 
+# we will transfer it to our own computers and open it in whatever browser you would like. This can be done by simply dragging between the two screens in WinSCP.
+
+
+# after fastp we will run fastQC which will give us a good idea of the overall quality of the data and whether there may be any serious problems to consider for later analysis
+# we move to the folder FastQC
+
+cd $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/FastQC
+
+# We have the script ready here but to walk through it quickly...
+# This will only take a few min to run and will create html files to. 
+
+# we can look at these to. 
+
+Now we will run the final script which will assemble the filtered reads in spades and we will have a look at how we did assembling the genome by aligning it against a reference genome
+
+cd $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/SPAdes
+
