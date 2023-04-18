@@ -67,7 +67,14 @@ cat *fragment_R2* > SRR10009242_R2.fastq.gz
 
 # Now we are ready to analyse the data.
 
-#the first step is to trim the files for that we will use a program called fastp.
+#we will run fastQC which will give us a good idea of the overall quality of the data and whether there may be any serious problems to consider for later analysis
+# we move to the folder FastQC
+
+cd $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/FastQC
+
+sbatch Adenovirus_FastQC_2023-04-19.slurm
+
+# next we will trim the files for that we will use a program called fastp.
 # we have prepared a script for this in the fastp folder 
 
 cd $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/fastp
@@ -85,10 +92,6 @@ sbatch Adenovirus_fastp_2023-04-19.slurm
 # we will transfer it to our own computers and open it in whatever browser you would like. This can be done by simply dragging between the two screens in WinSCP.
 
 
-# after fastp we will run fastQC which will give us a good idea of the overall quality of the data and whether there may be any serious problems to consider for later analysis
-# we move to the folder FastQC
-
-cd $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/FastQC
 
 # We have the script ready here but to walk through it quickly...
 # This will only take a few min to run and will create html files to. 
@@ -99,3 +102,4 @@ Now we will run the final script which will assemble the filtered reads in spade
 
 cd $SCRATCH1DIR/Hacky_hour_Workshop_2/Adenovirus/SPAdes
 
+sbatch Adenovirus_SPAdes_2023-04-19.slurm
